@@ -1,0 +1,26 @@
+{
+  "name": "mailyapplication",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "npm": "6.4.1",
+    "node": "10.15.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevencript/mailyApplication.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevencript/mailyApplication/issues"
+  },
+  "homepage": "https://github.com/kevencript/mailyApplication#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
