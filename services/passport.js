@@ -10,9 +10,13 @@ passport.use(
         clientSecret: keys.GoogleClientSecret,
         callbackURL: '/auth/google/callback'
     }, (acessToken, refreshToken, profile, done) => {
-        
-        User.findOne({ googleId: profile.id }) 
-        
-
+            new User({ 
+                googleId: profile.id,
+                name: profile.displayName
+             }).save()
+             
+             .then(userCreated => {
+                 console.log(userCreated);
+             });
     }
 ));
