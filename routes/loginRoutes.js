@@ -1,18 +1,16 @@
-const router = require('express');
+const router = require("express");
 const app = router();
 
 const authCheck = (req, res, next) => {
+  if (!req.user) {
+    res.redirect("/auth/google");
+  } else {
+    next();
+  }
+};
 
-    if(!req.user){
-        res.redirect('/auth/google');
-    } else {
-        next();
-    }
-}
-
-
-app.get('/', authCheck, (req, res) => {
-    res.send('You are logged in, '+req.user.name);
+app.get("/", authCheck, (req, res) => {
+  res.send("You are logged in, " + req.user.name);
 });
 
 module.exports = app;
