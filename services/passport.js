@@ -24,12 +24,14 @@ passport.use(
     (acessToken, refreshToken, profile, done) => {
       User.findOne({ googleId: profile.id }).then(existingUser => {
         if (existingUser) {
-          console.log("User is: " + profile);
+          console.log("User is: " + existingUser);
           done(null, existingUser);
         } else {
           new User({
             googleId: profile.id,
-            name: profile.displayName
+            name: profile._json.given_name,
+            middlename: profile._json.family_name,
+            email: profile._json.email
           })
             .save()
             .then(userCreated => {
