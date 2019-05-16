@@ -4,7 +4,6 @@ const keys = require("./configs/keys");
 const requireDir = require("require-dir");
 const passport = require("passport");
 const cookieSession = require("cookie-session");
-const loginRoutes = require("./routes/loginRoutes");
 
 requireDir("./models");
 require("./services/passport");
@@ -25,7 +24,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require("./routes/authRoutes")(app);
-app.use("/profile", loginRoutes);
 
 const PORT = process.env.PORT || 5000;
 

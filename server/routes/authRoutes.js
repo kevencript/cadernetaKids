@@ -13,11 +13,15 @@ module.exports = app => {
     res.send("You are logout");
   });
 
+  app.get("/api/current_user", (req, res) => {
+    res.send(req.user);
+  });
+
   app.get(
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/profile");
+      res.redirect("/api/current_user");
     }
   );
 };
