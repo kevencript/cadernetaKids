@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import Header from "./Header/index";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
 // components imports
+import Header from "./Header/index";
+import Footer from "./Footer/index";
 import Landing from "../pages/Landing/index";
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         <BrowserRouter>
           <Route exact path="/" component={Landing} />
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }

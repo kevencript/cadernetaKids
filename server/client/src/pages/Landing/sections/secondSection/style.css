@@ -1,5 +1,5 @@
 .section2 {
-  background-color: #8860d0;
+  background-color: #f7f7f7;
   position: relative;
   display: table;
   top: 0;
@@ -22,12 +22,13 @@
 }
 
 .section2 .textTitle {
-  color: white;
+  color: #353535;
   font-size: 35px;
 }
 
 .section2 .textBody {
-  color: white;
+  color: #64c7ef;
+  opacity: 0.7;
   font-size: 20px;
   font-weight: 300;
 }

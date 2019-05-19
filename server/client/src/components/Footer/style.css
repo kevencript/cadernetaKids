@@ -1,0 +1,15 @@
+footer {
+  background-image: linear-gradient(to right, #038ace, #3dbcb7);
+  color: white;
+}
+
+.socialIcons {
+  margin-left: 20px;
+  font-size: 9px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.socialIcons:hover {
+  color: #f4f4f4;
+}

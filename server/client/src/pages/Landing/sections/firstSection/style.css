@@ -1,5 +1,5 @@
 .section {
-  background-color: #f7f7f7;
+  background-image: linear-gradient(to right, #3dbcb7, #038ace);
   position: relative;
   display: table;
   top: 0;
@@ -21,20 +21,21 @@
 }
 
 .textTitle {
-  color: #383838;
+  color: white;
   font-size: 35px;
   text-align: left;
 }
 
 .textBody {
-  color: #b390f4;
+  color: white;
+  opacity: 0.7;
   font-size: 20px;
   font-weight: 300;
   text-align: left;
 }
 
 .buttonStart {
-  background-color: #8860d0; /* Green */
+  background-color: #7cd322;
   border: none;
   display: inline;
   float: left;
@@ -47,11 +48,11 @@
   display: inline-block;
   font-size: 16px;
   border-radius: 8px;
-  transition: all 0.2s;
+  transition: all 0.4s;
 }
 
 .buttonStart:hover {
-  background-color: #9e7dd8;
+  background-color: #63b20e;
 }
 
 .fab {

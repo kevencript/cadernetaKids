@@ -3,6 +3,29 @@ import { connect } from "react-redux";
 import "./style.css";
 
 class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      navbarStatus: "hidden"
+    };
+  }
+
+  handleScroll() {
+    if (document.documentElement.scrollTop > 73) {
+      this.setState({
+        navbarStatus: "show"
+      });
+    } else {
+      this.setState({
+        navbarStatus: "hidden"
+      });
+    }
+  }
+
+  componentDidMount() {
+    window.onscroll = () => this.handleScroll();
+  }
+
   renderContent() {
     switch (this.props.auth) {
       case null: // while we don't have an response of api
@@ -21,22 +44,33 @@ class Header extends Component {
       default:
         // user logged
         return (
-          <a className="nav-link" href="/api/logout" aria-disabled="true">
-            Logout <i class="fas fa-door-open" />
+          <a
+            rel="tooltip"
+            data-placement="bottom"
+            title="Você"
+            className="nav-link"
+            href="/api/logout"
+            aria-disabled="true"
+          >
+            Sair <i class="fas fa-door-open" />
           </a>
         );
     }
   }
 
+  // JSX stuff
   render() {
     return (
-      <nav className="navbar fixed-top navbar-expand-lg navbar-dark ">
+      <nav
+        className="navbar puta fixed-top navbar-expand-lg"
+        id={this.state.navbarStatus}
+      >
         <div className="container">
           <a className="navbar-brand" href="/">
             CadernetaKids+
           </a>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler navbar-dark"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -44,11 +78,11 @@ class Header extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon navbar-dark" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
-              <li className="nav-item active">
+              <li className="nav-item menu-item">
                 <a className="nav-link" href="/">
                   Como Funciona?
                 </a>
