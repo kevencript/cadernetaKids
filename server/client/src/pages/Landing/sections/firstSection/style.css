@@ -1,0 +1,83 @@
+.section {
+  background-color: #f7f7f7;
+  position: relative;
+  display: table;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.section .textStyle {
+  margin-top: 9%;
+  margin-bottom: 8%;
+}
+
+.section .textStyle .fas {
+  margin-left: 8px;
+  font-size: 20px;
+}
+
+.textTitle {
+  color: #383838;
+  font-size: 35px;
+  text-align: left;
+}
+
+.textBody {
+  color: #b390f4;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: left;
+}
+
+.buttonStart {
+  background-color: #8860d0; /* Green */
+  border: none;
+  display: inline;
+  float: left;
+  color: white;
+
+  margin-top: 10px;
+  padding: 9px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.buttonStart:hover {
+  background-color: #9e7dd8;
+}
+
+.fab {
+  font-size: 3em;
+}
+
+@media screen and (max-width: 580px) {
+  .section .textStyle {
+    margin-top: 25%;
+  }
+
+  .textTitle {
+    margin-bottom: 12%;
+    text-align: center;
+  }
+  .complementImg {
+    display: none;
+  }
+
+  .buttonStart {
+    margin-top: 10%;
+    margin-bottom: 20%;
+    float: none;
+  }
+
+  .textBody {
+    text-align: center;
+  }
+}

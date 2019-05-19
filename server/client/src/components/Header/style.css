@@ -1,0 +1,14 @@
+.navbar {
+  background-color: #8860d0;
+  color: white;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.navbar .fab {
+  font-size: 2em;
+}
+
+.navbar .padding2 {
+  margin-bottom: 202%;
+}
