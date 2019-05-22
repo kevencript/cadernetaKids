@@ -1,5 +1,5 @@
 .section {
-  background-image: linear-gradient(to right, #3dbcb7, #038ace);
+  background-image: linear-gradient(to left, #f44298, #038ace);
   position: relative;
   display: table;
   top: 0;
@@ -8,6 +8,11 @@
   height: 100%;
   background-size: cover;
   background-position: center center;
+}
+
+.img_first {
+  max-width: 480px;
+  width: 100%;
 }
 
 .section .textStyle {
@@ -57,6 +62,13 @@
 
 .fab {
   font-size: 3em;
+}
+
+@media screen and (max-width: 767px) {
+  .img_first {
+    margin-top: 6%;
+    max-width: 370;
+  }
 }
 
 @media screen and (max-width: 580px) {

@@ -28,7 +28,8 @@ export default class ThirdSection extends Component {
                   <strong>Adicione Informações</strong>
                 </h1>
                 <h4 className="textBody">
-                  Adicione as primeiras medidas do seu Bebê!
+                  Adicione as primeiras medidas do seu Bebê e com o tempo, nós
+                  te dizemos o quanto ele cresceu!
                 </h4>
                 <div className="col-sm-6 willHideImage">
                   <img src="" alt="" />
@@ -43,9 +44,6 @@ export default class ThirdSection extends Component {
                 <h4 className="textBody">
                   Compartilhe o desenvolvimento do seu filho com os seus amigos!
                 </h4>
-                <div className="col-sm-6 willHideImage">
-                  <img src="" alt="" />
-                </div>
               </div>
             </div>
           </div>

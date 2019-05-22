@@ -11,6 +11,7 @@ export default class Footer extends Component {
             <a
               className="socialIcons"
               target="_blank"
+              rel="noopener noreferrer"
               href="https://www.linkedin.com/in/gabriel-bragavera/"
             >
               <i
@@ -22,6 +23,7 @@ export default class Footer extends Component {
             </a>
             <a
               className="socialIcons"
+              rel="noopener noreferrer"
               target="_blank"
               href="https://www.linkedin.com/in/gabriel-bragavera/"
             >

@@ -1,5 +1,13 @@
 const passport = require("passport");
 
+const Auth = (req, res, next) => {
+  if (!req.user) {
+    res.redirect("/auth/google");
+  } else {
+    next();
+  }
+};
+
 module.exports = app => {
   app.get(
     "/auth/google",
@@ -21,7 +29,7 @@ module.exports = app => {
     "/auth/google/callback",
     passport.authenticate("google"),
     (req, res) => {
-      res.redirect("/surveys");
+      res.redirect("/");
     }
   );
 };

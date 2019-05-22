@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import "./style.css";
 
 class Header extends Component {
@@ -11,7 +12,7 @@ class Header extends Component {
   }
 
   handleScroll() {
-    if (document.documentElement.scrollTop > 73) {
+    if (document.documentElement.scrollTop > 50) {
       this.setState({
         navbarStatus: "show"
       });
@@ -36,24 +37,23 @@ class Header extends Component {
         );
       case false: // user not logged-in
         return (
-          <a className="nav-link" href="/auth/google">
-            Login com Google <i class="fas fa-sign-in-alt" />
-          </a>
+          <li className="nav-item active">
+            <a className="nav-link" href="/auth/google">
+              Login com Google <i class="fas fa-sign-in-alt" />
+            </a>
+          </li>
         );
 
       default:
         // user logged
         return (
-          <a
-            rel="tooltip"
-            data-placement="bottom"
-            title="Você"
-            className="nav-link"
-            href="/api/logout"
-            aria-disabled="true"
-          >
-            Sair <i class="fas fa-door-open" />
-          </a>
+          <div>
+            <li className="nav-item active">
+              <a className="nav-link" href="/api/logout" aria-disabled="true">
+                Sair <i class="fas fa-door-open" />
+              </a>
+            </li>
+          </div>
         );
     }
   }
@@ -66,9 +66,9 @@ class Header extends Component {
         id={this.state.navbarStatus}
       >
         <div className="container">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             CadernetaKids+
-          </a>
+          </Link>
           <button
             className="navbar-toggler navbar-dark"
             type="button"
@@ -83,14 +83,15 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
               <li className="nav-item menu-item">
-                <a className="nav-link" href="/">
-                  Como Funciona?
-                </a>
+                <Link
+                  className="nav-link"
+                  to={this.props.auth ? "/surveys" : "/"}
+                >
+                  Início
+                </Link>
               </li>
             </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item active">{this.renderContent()}</li>
-            </ul>
+            <ul className="navbar-nav">{this.renderContent()}</ul>
           </div>
         </div>
       </nav>
