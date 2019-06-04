@@ -19,7 +19,7 @@ export default class SecondSection extends Component {
                 <h1 className="textTitle ">
                   <strong>
                     Acompanhe o crescimendo do seu filho, até tomando um café
-                    <i class="fas fa-coffee iconCoffee" />
+                    <i className="fas fa-coffee iconCoffee" />
                   </strong>
                 </h1>
                 <h4 className="textBody">

@@ -10,7 +10,7 @@ export default class ThirdSection extends Component {
             <div className="row">
               <div className="col-sm-12  col-md-4">
                 <h1 className="textTitle ">
-                  <i class="fab fa-google-plus-g col-12 icons googleIcon" />
+                  <i className="fab fa-google-plus-g col-12 icons googleIcon" />
                   <strong>Login com Google+</strong>
                 </h1>
                 <h4 className="textBody">
@@ -24,7 +24,7 @@ export default class ThirdSection extends Component {
 
               <div className="col-sm-12  col-md-4">
                 <h1 className="textTitle ">
-                  <i class="fas fa-baby icons col-12" />
+                  <i className="fas fa-baby icons col-12" />
                   <strong>Adicione Informações</strong>
                 </h1>
                 <h4 className="textBody">
@@ -38,7 +38,7 @@ export default class ThirdSection extends Component {
 
               <div className="col-sm-12  col-md-4">
                 <h1 className="textTitle ">
-                  <i class="fas fa-users icons col-12" />
+                  <i className="fas fa-users icons col-12" />
                   <strong>Compartilhe!</strong>
                 </h1>
                 <h4 className="textBody">

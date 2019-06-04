@@ -1,14 +1,10 @@
 const passport = require("passport");
-
-const Auth = (req, res, next) => {
-  if (!req.user) {
-    res.redirect("/auth/google");
-  } else {
-    next();
-  }
-};
+const Auth = require("../services/AuthVerify");
 
 module.exports = app => {
+  // @route    GET auth/google
+  // @desc     Open the Google API for user Login
+  // @acess    Public
   app.get(
     "/auth/google",
     passport.authenticate("google", {
@@ -16,15 +12,9 @@ module.exports = app => {
     })
   );
 
-  app.get("/api/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
-  });
-
-  app.get("/api/current_user", (req, res) => {
-    res.send(req.user);
-  });
-
+  // @route    GET /auth/google/callback
+  // @desc     Callback of Google API
+  // @acess    Public
   app.get(
     "/auth/google/callback",
     passport.authenticate("google"),
@@ -32,4 +22,19 @@ module.exports = app => {
       res.redirect("/");
     }
   );
+
+  // @route    GET /api/logout
+  // @desc     Destroy an user login
+  // @acess    Public
+  app.get("/api/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+  });
+
+  // @route    GET /api/current_user
+  // @desc     Return the logged urser's infos
+  // @acess    Private
+  app.get("/api/current_user", (req, res) => {
+    res.json(req.user);
+  });
 };

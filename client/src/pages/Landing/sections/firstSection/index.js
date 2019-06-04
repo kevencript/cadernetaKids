@@ -20,7 +20,7 @@ export default class FirstSection extends Component {
                   segura, prática e digital!
                 </h4>
                 <button href="/auth/google" className="buttonStart">
-                  Começar Agora <i class="fas fa-grin-stars" />
+                  Começar Agora <i className="fas fa-grin-stars" />
                 </button>
               </div>
               <div className="col-sm-12 col-md-6 complementImg">

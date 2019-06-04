@@ -7,10 +7,12 @@ import * as actions from "../actions";
 import Header from "./Header/index";
 import Footer from "./Footer/index";
 import Landing from "../pages/Landing/index";
+import formProfile from "../pages/formProfile/index";
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
+    //this.props.fetchProfile();
   }
 
   render() {
@@ -19,6 +21,7 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Route exact path="/" component={Landing} />
+          <Route exact path="/profile/create" component={formProfile} />
         </BrowserRouter>
         <Footer />
       </div>

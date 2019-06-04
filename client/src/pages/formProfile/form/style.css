@@ -1,0 +1,57 @@
+div.container.sectionContainer {
+  background-image: linear-gradient(to bottom, #5b4287 25%, #8a6eb7 25%);
+  border-radius: 6px;
+  margin-top: 30px;
+  margin-bottom: 70px;
+  color: white;
+
+  padding-bottom: 30px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+}
+
+div.container.sectionContainer:hover {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+}
+
+button#buttonFormChildProfile {
+  background-color: #5b4287;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: all 0.2s;
+}
+
+i#babyCarriegeForm.fas.fa-baby {
+  font-size: 65px;
+  margin-top: 9px;
+  margin-bottom: 60px;
+  color: #bb9dea;
+}
+
+button#buttonFormChildProfile:hover {
+  opacity: 0.9;
+}
+
+/* Mobile */
+@media screen and (max-width: 580px) {
+  i#babyCarriegeForm.fas.fa-baby {
+    font-size: 90px;
+    margin-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  i#babyCarriegeForm.fas.fa-baby {
+    font-size: 82px;
+    margin-top: 23px;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (min-width: 568px) {
+  i#babyCarriegeForm.fas.fa-baby-carriage {
+    font-size: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}

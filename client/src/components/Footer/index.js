@@ -5,8 +5,8 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <footer class="page-footer font-small blue pt-1">
-          <div class="footer-copyright text-center py-3">
+        <footer className="page-footer font-small blue pt-1">
+          <div className="footer-copyright text-center py-3">
             CadernetaKids © 2019 |
             <a
               className="socialIcons"
@@ -31,7 +31,7 @@ export default class Footer extends Component {
                 rel="tooltip"
                 data-placement="top"
                 title="GitHub do Desenvolvedor Web"
-                class="fab fa-github"
+                className="fab fa-github"
               />
             </a>
           </div>

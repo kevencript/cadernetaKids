@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const keys = require("./configs/keys");
 const requireDir = require("require-dir");
 const passport = require("passport");
+const bodyParser = require("body-parser");
 const cookieSession = require("cookie-session");
 
 requireDir("./models");
@@ -20,10 +21,14 @@ app.use(
 );
 
 // initialize passport
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./routes/authRoutes")(app);
+// Routes imports
+require("./routes/authRoutes")(app); // Auth Routes
+require("./routes/childProfileRoutes")(app); // Profile Routes
 
 const PORT = process.env.PORT || 5000;
 

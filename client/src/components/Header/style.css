@@ -1,12 +1,12 @@
 #show {
-  transition: all 0.8s;
   background-image: linear-gradient(to left, #f44298, #038ace);
+  transition: all 0.8s;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 #hidden {
   transition: all 0.8s;
-  background-color: transparent;
+  background-image: linear-gradient(to left, #f44298, #038ace);
 }
 
 .navbar-toggler.navbar-toggler-icon {

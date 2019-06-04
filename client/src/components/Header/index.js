@@ -39,7 +39,7 @@ class Header extends Component {
         return (
           <li className="nav-item active">
             <a className="nav-link" href="/auth/google">
-              Login com Google <i class="fas fa-sign-in-alt" />
+              Login com Google <i className="fas fa-sign-in-alt" />
             </a>
           </li>
         );
@@ -50,7 +50,7 @@ class Header extends Component {
           <div>
             <li className="nav-item active">
               <a className="nav-link" href="/api/logout" aria-disabled="true">
-                Sair <i class="fas fa-door-open" />
+                Sair <i className="fas fa-door-open" />
               </a>
             </li>
           </div>
