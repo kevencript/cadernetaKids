@@ -20,14 +20,54 @@ module.exports = app => {
     }
   });
 
+  // @route    PUT /api/profile/measures
+  // @desc     Add profile measures
+  // @acess    Private
+  app.put("/api/profile/measures", Auth, async (req, res) => {
+    try {
+      const { perimetroCefalico, peso, comprimento } = req.body;
+      const newMeasure = { perimetroCefalico, peso, comprimento };
+
+      const profile = await childProfile.findOne({
+        user: req.user.id
+      });
+
+      await profile.measures.unshift(newMeasure);
+
+      await profile.save();
+      res.send(profile);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Server Error");
+    }
+  });
+
   // @route    GET /api/profile/all
   // @desc     Return all the profiles
   // @acess    Private
-  app.get("/api/profile/all", async (req, res) => {
+  app.get("/api/profile/all", Auth, async (req, res) => {
     try {
       const profiles = await childProfile
         .find()
-        .populate("user", ["name", "middlename", "picture"]);
+        .populate("User", ["name", "middlename", "picture"]);
+      return res.json(profiles);
+    } catch (error) {
+      console.log(error.message);
+      res.status(400).send("Server Error");
+    }
+  });
+
+  // @route    DELETE /api/profile/delete/:id
+  // @desc     Delete profile
+  // @acess    Private
+  app.delete("/api/profile/delete/:id", Auth, async (req, res) => {
+    const { id } = req.params;
+    try {
+      const profiles = await childProfile.findOneAndDelete({
+        _id: id,
+        user: req.user.id
+      });
+      console.log("User deleted");
       return res.json(profiles);
     } catch (error) {
       console.log(error.message);
@@ -44,10 +84,11 @@ module.exports = app => {
 
       const profile = await childProfile
         .findOne({ user: user_id })
-        .populate("user", ["name", "middlename", "picture"]);
+        .populate("User", ["name", "middlename", "picture"]);
 
       // checking if acctually exist an profile with this id
-      if (!profile) res.status(400).json({ msg: "Perifl não encontrado." });
+      if (!profile)
+        return res.status(400).json({ msg: "Perfil não encontrado." });
 
       return res.json(profile);
     } catch (error) {
@@ -60,6 +101,38 @@ module.exports = app => {
       }
     }
   });
+
+  // @route    DELETE /api/profile/measure/delete/:measure_id
+  // @desc     Delete measure by id
+  // @acess    Private
+  app.delete(
+    "/api/profile/measure/delete/:measure_id",
+    Auth,
+    async (req, res) => {
+      try {
+        const profile = await childProfile.findOne({
+          user: req.user.id
+        });
+
+        //Get the index to remove
+        const removeIndex = profile.measures
+          .map(item => item.id)
+          .indexOf(req.params.measure_id);
+
+        if (removeIndex == -1)
+          return res.status(400).send("Não achamos a medida.");
+
+        //Removing the measure
+        profile.measures.splice(removeIndex, 1);
+
+        await profile.save();
+        return res.json(removeIndex);
+      } catch (error) {
+        console.log(error.message);
+        res.status(500).json("Server Error");
+      }
+    }
+  );
 
   // @route    POST /api/profile/create
   // @desc     Create or Update childrens profiles

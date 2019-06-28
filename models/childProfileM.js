@@ -19,13 +19,29 @@ const ChildProfileSchema = new Schema({
     required: true
   },
   birth: {
-    type: Date,
+    type: String,
     required: true
   },
   picture: {
-    type: String,
-    required: false
-  }
+    type: String
+  },
+  measures: [
+    {
+      perimetroCefalico: {
+        type: String
+      },
+      peso: {
+        type: Number
+      },
+      comprimento: {
+        type: Number
+      },
+      createdAt: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ]
 });
 
 mongoose.model("childProfile", ChildProfileSchema);

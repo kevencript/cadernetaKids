@@ -28,7 +28,7 @@ class formProfile extends Component {
               aria-controls="collapseExample"
             />
           </p>
-          <div class="collapse" id="collapseExample">
+          <div className="collapse" id="collapseExample">
             <div className="card card-body" id="textCardbord">
               É necessário adicionar o perfil de bebê para adicionar as
               primeiras medidas
