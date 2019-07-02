@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { setAlert } from "../../../actions/alertActions";
 import "./style.css";
 
-const Form = () => {
+const Form = props => {
   //Defining the hooks
   const [formData, setFormData] = useState({
     name: "",
@@ -14,20 +16,35 @@ const Form = () => {
   const { name, middlename, genre, date } = formData;
 
   //onChange function
-  const onChange = e =>
+  const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   //onSubmit function
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    console.log(formData);
+
+    props.setAlert("Apenas um teste!", "danger");
+
+    const newProfile = {
+      name,
+      middlename,
+      genre,
+      date
+    };
+
+    try {
+      console.log("Ok");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <div className="container sectionContainer">
       <form
         className="formContainer col-12 "
-        method="GET"
+        method="POST"
         onSubmit={e => onSubmit(e)}
       >
         <i className="fas fa-baby " id="babyCarriegeForm" />
@@ -117,4 +134,7 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default connect(
+  null,
+  { setAlert }
+)(Form);

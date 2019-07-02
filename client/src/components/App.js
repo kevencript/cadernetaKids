@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../actions";
+import { fetchUser } from "../actions/authActions";
 
 // components imports
 import Header from "./Header/index";
@@ -31,5 +31,5 @@ class App extends Component {
 
 export default connect(
   null,
-  actions
+  { fetchUser }
 )(App);
